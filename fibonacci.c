@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#define MAX_COUNT 30
+#define MAX_COUNT 20
 
 int main(void)
 {
