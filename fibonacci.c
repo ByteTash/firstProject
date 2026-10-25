@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#define MAX_COUNT 20
+#define MAX_COUNT 40
+
 
 int main(void)
 {
@@ -9,16 +10,37 @@ int main(void)
     unsigned int second = 1;
     unsigned sumValue = 0;
     unsigned int count = 0;
+    unsigned int maxCount = 0;
 
-    printf("Output %d\n", first);
-    printf("Output %d\n", second);    
-    count = 2;
+    printf("This program generates fibonacci series upto N numbers as defined by user\n");
+
+    printf("Enter count (N) value upto %d\n", MAX_COUNT);
+    scanf("%d", &maxCount);
+    if( maxCount > MAX_COUNT) {
+        printf("Erroneous count, exiting");
+        return 0;
+    }
+
+    printf("Enter first two consecutive numbers of fibonacci series\nEnter first number:");
+    scanf("%d", &first);
+    printf("Enter second number:");
+    scanf("%d", &second);
+    if( (second - first) != 1) {
+        printf( "Erroneous first two numbers, exiting");
+        return 0;
+    }
 
 
-    while ( count < MAX_COUNT )
-    {
+
+    printf("Fibonacci series upto %d numbers\n", maxCount);
+    printf("%2d: %d\n", count+1, first);
+    count++;
+    printf("%2d: %d\n", count+1, second);    
+    count = count + 1;
+
+    while ( count < maxCount )  {
         sumValue = first + second;
-        printf("Output %d\n", sumValue);
+        printf("%2d: %d\n", count+1, sumValue);
 
         first = second;
         second = sumValue;
